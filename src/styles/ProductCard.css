@@ -9,7 +9,7 @@
 }
 
 .product-card__image {
-  height: 200px;
+  height: 250px;
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, #f59e0b, #f97316);
@@ -20,8 +20,10 @@
 }
 
 .product-card__image img{
-    height: 200px;
+    height: 100%;
     width: 100%;
+    object-position: center;
+    display: block;
 }
 .product-card__content {
   padding: 16px;

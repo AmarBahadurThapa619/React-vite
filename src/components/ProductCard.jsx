@@ -2,7 +2,7 @@ import React from 'react'
 import "../styles/ProductCard.css"
 
 const ProductCard = ({data}) => {
-    const {title,description,price,image}=data;
+    const {image,title,description,price}=data;
     return (
         <article className="product-card">
             <div className="product-card__image" aria-hidden="true">
