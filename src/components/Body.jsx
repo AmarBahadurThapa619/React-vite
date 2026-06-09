@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 // import { products } from "../constants/constant.js";
 import '../styles/Body.css';
 import ProductCard from "./ProductCard";
+import ProductCardSkeleton from './ProductCardSkeleton.jsx';
 
 function Body(){
     // const [productList, setProductList] = useState(products);
@@ -31,10 +32,9 @@ function Body(){
                 <button onClick={handleTopRatedProducts}>Top Rated Products</button>
             </div>
 
-            {
-                productsList.map((product) =>
-                    <ProductCard data = {product} key={product.id} />
-            )}
+            {productsList.length === 0
+            ? Array.from({ length: 4 }).map((_, index) => <ProductCardSkeleton key={index} />)
+            : productsList.map((product) => <ProductCard data={product} key={product.id} />)}
         </main>
     );
 }
