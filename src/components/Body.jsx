@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 // import { products } from "../constants/constant.js";
+import { Link } from 'react-router-dom';
 import '../styles/Body.css';
 import ProductCard from "./ProductCard";
 import ProductCardSkeleton from './ProductCardSkeleton.jsx';
@@ -33,8 +34,12 @@ function Body(){
             </div>
 
             {productsList.length === 0
-            ? Array.from({ length: 4 }).map((_, index) => <ProductCardSkeleton key={index} />)
-            : productsList.map((product) => <ProductCard data={product} key={product.id} />)}
+        ? Array.from({ length: 4 }).map((_, index) => <ProductCardSkeleton key={index} />)
+        : productsList.map((product) => (
+            <Link to={`/${product.id}`} key={product.id}>
+              <ProductCard data={product} />
+            </Link>
+          ))}
         </main>
     );
 }
